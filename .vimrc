@@ -12,6 +12,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'slack/vim-bufexplorer'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'msanders/snipmate.vim'
 " vim-scripts repos
 Bundle 'rails.vim'
 Bundle 'kwbdi.vim'
@@ -175,7 +177,8 @@ endif
  "set guifont=Sans\ 8
 " set guifont=Droid\ Sans\ Mono\ 10
   "set guifont=Monaco\ 10
-  set guifont=Mensch\ 10
+  "set guifont=Mensch\ 10
+  set guifont=Anonymous\ Pro\ 14
 "set guifont=Terminus\ 14
 set linespace=1
 
@@ -247,11 +250,6 @@ set viminfo^=!
 set history=512  " Number of things to remember in history.
 "set autowrite  " Writes on make/shell commands
 
-
-
-" add ruby snippets
-" autocmd BufNewFile,BufRead *.rb,*.rhtml,*.rjs source ~/.vim/scripts/rubysnippets.vim
-
 "" Line numbering
 set nu
 "set numberwidth=5
@@ -261,7 +259,7 @@ set formatoptions+=c
 " Mail writting
 if has("autocmd")
   autocmd FileType mail set autoindent expandtab formatoptions+=n
-  autocmd FileType mail highlight clear RedundantWhitespace 
+  autocmd FileType mail highlight clear RedundantWhitespace
 endif
 
 " Stop certain movements from always going to the first character of a line.
@@ -467,6 +465,8 @@ set listchars=tab:▸\ ,eol:¬
 set list
 
 
+
+
 " ` is useful and hard to type, I almost never want '
 map ' `
 
@@ -480,5 +480,10 @@ set nostartofline
 
 let g:slimv_lisp='"java -cp `./src/scripts/classpath`:src/main/clojure clojure.main"'
 
+let g:snips_author='Sebastián Bernardo Galkin'
+
+if (has("gui_running") || g:solarized_termtrans == 0)
+  highlight NonText guifg=#003340
+endif
 
 nnoremap <F5> :GundoToggle<CR>
