@@ -14,6 +14,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'msanders/snipmate.vim'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'kikijump/tslime.vim'
 " vim-scripts repos
 Bundle 'rails.vim'
 Bundle 'kwbdi.vim'
@@ -178,7 +180,7 @@ endif
 " set guifont=Droid\ Sans\ Mono\ 10
   "set guifont=Monaco\ 10
   "set guifont=Mensch\ 10
-  set guifont=Anonymous\ Pro\ 14
+  set guifont=Anonymous\ Pro\ 12
 "set guifont=Terminus\ 14
 set linespace=1
 
@@ -394,6 +396,7 @@ let g:snippetsEmu_key = "<S-Enter>"
 let vimclojure#WantNailgun = 0
 let vimclojure#NailgunClient = "/home/seba/development/vimclojure/client/ng"
 let vimclojure#HighlightBuiltins = 1
+let vimclojure#HighlightContrib = 1
 let vimclojure#ParenRainbow = 1
 let vimclojure#DynamicHighlighting = 1
 
