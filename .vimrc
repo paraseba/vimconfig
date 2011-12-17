@@ -1,8 +1,10 @@
 ﻿set nocompatible
 filetype off                   " required! by vundle
 
-set rtp+=~/.vim/vundle.git/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
@@ -16,6 +18,13 @@ Bundle 'vim-scripts/VimClojure'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'kikijump/tslime.vim'
+Bundle 'scrooloose/nerdcommenter'
+
+"related to VimOrganizer
+Bundle 'hsitz/VimOrganizer'
+"related to VimOrganizer
+Bundle 'mattn/calendar-vim'
+
 " vim-scripts repos
 Bundle 'rails.vim'
 Bundle 'kwbdi.vim'
@@ -23,6 +32,13 @@ Bundle 'Align'
 Bundle 'repeat.vim'
 Bundle 'surround.vim'
 Bundle "ZoomWin"
+
+
+"related to VimOrganizer
+Bundle "NrrwRgn"
+ "related to VimOrganizer
+Bundle "utl.vim"
+
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -192,7 +208,8 @@ endif
 set clipboard=unnamed
 
 " use lists when completing, the wildmenu is annoying
-set wildmode=longest,list
+set wildmode=list:longest
+
 "set wildmenu
 
 " backspace can backspace over anything
@@ -200,6 +217,9 @@ set backspace=indent,eol,start
 
 " Set the status line the way I like it
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ \ Col:\ %c\ Buf:\ #%n%=[TYPE=%Y\ %{&ff}]
+
+" Set the terminal title
+set title
 
 
 
@@ -468,10 +488,9 @@ set listchars=tab:▸\ ,eol:¬
 set list
 
 
-
-
 " ` is useful and hard to type, I almost never want '
-map ' `
+nnoremap ' `
+nnoremap ` '
 
 
 "When off the cursor is kept in the same column
@@ -490,3 +509,7 @@ if (has("gui_running") || g:solarized_termtrans == 0)
 endif
 
 nnoremap <F5> :GundoToggle<CR>
+
+"VimOrganizer
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+au BufEnter *.org            call org#SetOrgFileType()
